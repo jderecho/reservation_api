@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: postgres
-      POSTGRES_DB: reservation_api_test
+      POSTGRES_DB: reservation_api_development
     ports:
       - "5432:5432"
 
@@ -20,9 +20,9 @@ services:
     volumes:
       - .:/rails 
     environment:
-      DATABASE_URL: postgres://postgres:password@db:5432/reservation_api_test
-      RAILS_ENV: test
-      RACK_ENV: test
+      DATABASE_URL: postgres://postgres:password@db:5432/reservation_api_development
+      RAILS_ENV: development
+      RACK_ENV: development
       RAILS_MAX_THREADS: 5
       REDIS_URL: redis://redis:6379/1
       TOKENIZER_SECRET: 'randomsecret'
