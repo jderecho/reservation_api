@@ -24,9 +24,6 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
-    env:
-      RAILS_ENV: test
-      DATABASE_URL: "postgres://postgres:password@localhost:5432/reservation_api_test"
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -41,6 +38,9 @@ jobs:
         run: bin/rubocop -f github
   spec:
     runs-on: ubuntu-latest
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: "postgresql://postgres:password@postgres:5432/reservation_api_test"
     services:
       postgres:
         image: postgres:15
