@@ -1,24 +1,41 @@
-# README
+This is a Ruby on Rails-based API that allows users to create reservations.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Requirements
 
-Things you may want to cover:
+- Ruby version: 3.x.x
+- Rails version: 7.x.x
+- Database: PostgreSQL  
 
-* Ruby version
 
-* System dependencies
+#### System dependencies
+Ensure you have the following installed:
+- PostgreSQL
 
-* Configuration
+#### Configuration
+1. Clone the repository:
+> git clone https://github.com/jderecho/reservation-api.git
+cd reservation-api
+  
+<br>
 
-* Database creation
+#### Running the Application with Docker Compose
+1. Start the application:
+> docker-compose up --build
 
-* Database initialization
+2. The application will be available at:
+http://localhost:3000
 
-* How to run the test suite
+3. To stop the application:
+> docker-compose down
 
-* Services (job queues, cache servers, search engines, etc.)
+<br>
 
-* Deployment instructions
+#### Running the Test Suite
+To run tests inside the Docker container:
+> docker-compose run web bundle exec rspec --format documentation
 
-* ...
+<br>
+
+#### API Documentation
+API endpoints and documentation can be found at:
+http://localhost:3000/api-docs
