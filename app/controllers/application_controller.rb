@@ -11,10 +11,7 @@ class ApplicationController < ActionController::API
 
   def authenticate
     authenticate_or_request_with_http_token do |token, options|
-      key = JWT.decode(token, Rails.application.credentials.secret_key_base, true, algorithm: "HS256")
-      puts token
-      puts key
-      key
+      JWT.decode(token, Rails.application.credentials.secret_key_base, true, algorithm: "HS256")
     rescue JWT::DecodeError
       false
     end

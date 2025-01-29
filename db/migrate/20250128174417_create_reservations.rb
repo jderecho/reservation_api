@@ -7,12 +7,10 @@ class CreateReservations < ActiveRecord::Migration[7.2]
       t.integer :number_of_guests
       t.integer :number_of_adults
       t.integer :number_of_children
-      t.integer :number_of_infants
       t.references :guest, null: false, foreign_key: true
       t.decimal :security_price, precision: 10, scale: 2
       t.decimal :payout_price, precision: 10, scale: 2
       t.decimal :total_price, precision: 10, scale: 2
-      t.string :host_currency, default: 'AUD'
 
       t.timestamps
     end

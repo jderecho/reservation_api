@@ -1,0 +1,151 @@
+---
+openapi: 3.0.1
+info:
+  title: Reservation API V1
+  version: v1
+paths:
+  "/api/v1/reservations":
+    post:
+      summary: create reservation
+      tags:
+      - Reservations
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: Authorization
+        in: header
+        type: string
+        description: Bearer token for authentication
+        required: true
+        schema:
+          type: string
+          default: Bearer <token>
+      responses:
+        '201':
+          description: reservation created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  guest:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      email:
+                        type: string
+                  start_date:
+                    type: string
+                  end_date:
+                    type: string
+                  number_of_guests:
+                    type: integer
+                  number_of_adults:
+                    type: integer
+                  number_of_children:
+                    type: integer
+                  number_of_infants:
+                    type: integer
+                  security_price:
+                    type: number
+                  payout_price:
+                    type: number
+                  total_price:
+                    type: number
+                  total_nights:
+                    type: integer
+                  created_at:
+                    type: string
+        '401':
+          description: unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                start_date:
+                  type: string
+                end_date:
+                  type: string
+                nights:
+                  type: integer
+                guests:
+                  type: integer
+                adults:
+                  type: integer
+                children:
+                  type: integer
+                infants:
+                  type: integer
+                status:
+                  type: string
+                guest:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    first_name:
+                      type: string
+                    last_name:
+                      type: string
+                    phone:
+                      type: string
+                    email:
+                      type: string
+                currency:
+                  type: string
+                payout_price:
+                  type: number
+                security_price:
+                  type: number
+                total_price:
+                  type: number
+  "/auth/login":
+    post:
+      summary: login authentication
+      tags:
+      - Authentication
+      parameters: []
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  token:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+servers:
+- url: http://localhost:3000
+  variables:
+    defaultHost:
+      default: http://localhost:3000
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      name: Authorization
+      in: header

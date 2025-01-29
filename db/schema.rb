@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_01_29_113834) do
+ActiveRecord::Schema[7.2].define(version: 2025_01_29_190003) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,14 +30,14 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_29_113834) do
     t.integer "number_of_guests"
     t.integer "number_of_adults"
     t.integer "number_of_children"
-    t.integer "number_of_infants"
     t.bigint "guest_id", null: false
     t.decimal "security_price", precision: 10, scale: 2
     t.decimal "payout_price", precision: 10, scale: 2
     t.decimal "total_price", precision: 10, scale: 2
-    t.string "host_currency", default: "USD"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "host_currency", default: "AUD"
+    t.integer "number_of_infants"
     t.index ["guest_id"], name: "index_reservations_on_guest_id"
   end
 

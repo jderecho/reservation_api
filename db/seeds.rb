@@ -3,6 +3,6 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
 # Create a default user for development
-if Rails.env.development?
+if Rails.env.development? || Rails.env.test?
   FactoryBot.create(:user, username: 'admin', password: 'password')
 end
