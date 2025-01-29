@@ -24,6 +24,9 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: "postgres://postgres:password@localhost:5432/reservation_api_test"
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -65,16 +68,14 @@ jobs:
           bundler-cache: true
 
       - name: Install dependencies
-        run: bundle install --jobs 4 --retry 3
-
-      - name: Install Dependencies
         run: |
+          bundle install --jobs 4 --retry 3
           sudo apt-get update
           sudo apt-get install -y postgresql-client
 
       - name: Wait for PostgreSQL to be Ready
         run: |
-          until pg_isready -h localhost -p 5432 -U myuser; do
+          until pg_isready -h postgres -p 5432 -U postgres; do
             echo "Waiting for PostgreSQL to be ready..."
             sleep 2
           done
