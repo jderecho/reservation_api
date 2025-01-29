@@ -1,10 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe ReservationBuilder do
+  let(:start_date) { Date.current.strftime('%Y-%m-%d') }
+  let(:end_date) { (Date.current + 1.day).strftime('%Y-%m-%d') }
+
   let(:attrs) do
     {
-      start_date: '2021-03-12',
-      end_date: '2021-03-16',
+      start_date: start_date,
+      end_date: end_date,
       number_of_guests: 4,
       number_of_nights: 4,
       number_of_adults: 2,
@@ -31,8 +34,8 @@ RSpec.describe ReservationBuilder do
 
     it 'initializes the reservation builder with the correct attributes' do
       expect(subject.attrs).to eq(attrs)
-      expect(subject.instance_variable_get(:@start_date)).to eq('2021-03-12')
-      expect(subject.instance_variable_get(:@end_date)).to eq('2021-03-16')
+      expect(subject.instance_variable_get(:@start_date)).to eq(start_date)
+      expect(subject.instance_variable_get(:@end_date)).to eq(end_date)
       expect(subject.instance_variable_get(:@number_of_guests)).to eq(4)
       expect(subject.instance_variable_get(:@number_of_nights)).to eq(4)
       expect(subject.instance_variable_get(:@number_of_adults)).to eq(2)
@@ -55,8 +58,8 @@ RSpec.describe ReservationBuilder do
         reservation = subject.save
         expect(reservation).to be_a(Reservation)
         expect(reservation).to be_persisted
-        expect(reservation.start_date).to eq(Date.parse('2021-03-12'))
-        expect(reservation.end_date).to eq(Date.parse('2021-03-16'))
+        expect(reservation.start_date).to eq(Date.parse(start_date))
+        expect(reservation.end_date).to eq(Date.parse(end_date))
         expect(reservation.number_of_guests).to eq(4)
         expect(reservation.number_of_nights).to eq(4)
         expect(reservation.number_of_adults).to eq(2)
