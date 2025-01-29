@@ -41,14 +41,14 @@ RSpec.describe GuestBuilder do
     context 'when guest is existing' do
       it 'does not create a new guest' do
         guest = create(:guest)
-        guest_builder = described_class.new(attrs.merge({email: guest.email}))
+        guest_builder = described_class.new(attrs.merge({ email: guest.email }))
 
         expect { guest_builder.save }.not_to change(Guest, :count)
       end
 
       it 'returns the existing guest' do
         guest = create(:guest)
-        guest_builder = described_class.new(attrs.merge({email: guest.email}))
+        guest_builder = described_class.new(attrs.merge({ email: guest.email }))
         result = guest_builder.save
 
         expect(result).to eq(guest)
@@ -57,14 +57,14 @@ RSpec.describe GuestBuilder do
 
     context 'when email is invalid' do
       it 'raises an error' do
-        guest_builder = described_class.new(attrs.merge({email: 'invalid_email'}))
+        guest_builder = described_class.new(attrs.merge({ email: 'invalid_email' }))
 
         expect { guest_builder.save }.to raise_error(ActiveRecord::RecordInvalid)
       end
 
       context 'when email is missing' do
         it 'raises an error' do
-          guest_builder = described_class.new(attrs.merge({email: nil}))
+          guest_builder = described_class.new(attrs.merge({ email: nil }))
 
           expect { guest_builder.save }.to raise_error(ActiveRecord::RecordInvalid)
           expect(guest_builder.guest.errors.full_messages).to include("Email can't be blank")
@@ -74,7 +74,7 @@ RSpec.describe GuestBuilder do
 
     context 'when first_name is missing' do
       it 'raises an error' do
-        guest_builder = described_class.new(attrs.merge({first_name: nil}))
+        guest_builder = described_class.new(attrs.merge({ first_name: nil }))
 
         expect { guest_builder.save }.to raise_error(ActiveRecord::RecordInvalid)
         expect(guest_builder.guest.errors.full_messages).to include("First name can't be blank")
@@ -83,7 +83,7 @@ RSpec.describe GuestBuilder do
 
     context 'when last_name is missing' do
       it 'raises an error' do
-        guest_builder = described_class.new(attrs.merge({last_name: nil}))
+        guest_builder = described_class.new(attrs.merge({ last_name: nil }))
 
         expect { guest_builder.save }.to raise_error(ActiveRecord::RecordInvalid)
         expect(guest_builder.guest.errors.full_messages).to include("Last name can't be blank")

@@ -7,7 +7,7 @@ gem "pg", ">= 1.4"
 
 gem "rack-attack"
 gem "jwt"
-gem 'active_model_serializers', '~> 0.10.12'
+gem "active_model_serializers", "~> 0.10.12"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
@@ -44,11 +44,9 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'shoulda-matchers'
-  gem 'database_cleaner-active_record'
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "faker"
+  gem "shoulda-matchers"
+  gem "database_cleaner-active_record"
 end
-
-

@@ -46,9 +46,9 @@ RSpec.describe ReservationBuilder do
 
     context 'when save is called' do
       subject { described_class.new(attrs) }
-      
+
       it 'creates a new reservation' do
-        expect { subject.save}.to change(Reservation, :count).by(1)
+        expect { subject.save }.to change(Reservation, :count).by(1)
       end
 
       it 'returns the reservation' do

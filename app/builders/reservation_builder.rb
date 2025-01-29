@@ -28,7 +28,7 @@ class ReservationBuilder
     @security_price = attrs.fetch(:security_price, 0.0)
     @payout_price = attrs.fetch(:payout_price, 0.0)
     @total_price = attrs.fetch(:total_price, 0.0)
-    @host_currency = attrs.fetch(:host_currency, 'AUD')
+    @host_currency = attrs.fetch(:host_currency, "AUD")
   end
 
   def build_reservation

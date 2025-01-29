@@ -7,7 +7,7 @@ RSpec.describe ReservationPayloadParser do
 
   describe '#parse' do
     let(:parsed_data) { described_class.parse(reservation_payload.to_json) }
-  
+
     context 'when parsing payload #1 with guests key' do
       let(:reservation_payload_path) { 'spec/fixtures/reservation.json' }
 

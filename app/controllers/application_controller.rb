@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
 
   def authenticate
     authenticate_or_request_with_http_token do |token, options|
-      key = JWT.decode(token, Rails.application.credentials.secret_key_base, true, algorithm: 'HS256')
+      key = JWT.decode(token, Rails.application.credentials.secret_key_base, true, algorithm: "HS256")
       puts token
       puts key
       key
@@ -21,26 +21,26 @@ class ApplicationController < ActionController::API
   end
 
   def handle_error(exception)
-    render json: { 
-      status: 'error',
-      message: 'Internal server error',
-      error: exception.message 
+    render json: {
+      status: "error",
+      message: "Internal server error",
+      error: exception.message
     }, status: :internal_server_error
   end
 
   def handle_not_found(exception)
-    render json: { 
-      status: 'error',
-      message: 'Resource not found',
-      error: exception.message 
+    render json: {
+      status: "error",
+      message: "Resource not found",
+      error: exception.message
     }, status: :not_found
   end
 
   def handle_parameter_missing(exception)
-    render json: { 
-      status: 'error',
-      message: 'Missing required parameters',
-      error: exception.message 
+    render json: {
+      status: "error",
+      message: "Missing required parameters",
+      error: exception.message
     }, status: :unprocessable_entity
   end
 end

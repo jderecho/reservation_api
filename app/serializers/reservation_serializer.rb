@@ -2,7 +2,7 @@ class ReservationSerializer
   def initialize(reservation)
     @reservation = reservation
   end
-  
+
   def as_json
     {
       id: @reservation.id,

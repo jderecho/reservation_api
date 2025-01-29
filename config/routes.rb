@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :authentication, path: 'auth', only: [] do
+  resources :authentication, path: "auth", only: [] do
     collection do
       post :login
     end
@@ -16,7 +16,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-
       resources :reservations, only: %i[create] do
         collection do
           get :test

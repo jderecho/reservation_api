@@ -20,7 +20,7 @@ class GuestBuilder
     @email = attrs.fetch(:email, nil)
     @first_name = attrs.fetch(:first_name, nil)
     @last_name = attrs.fetch(:last_name, nil)
-    @phone_numbers = attrs.fetch(:phone_numbers, '')
+    @phone_numbers = attrs.fetch(:phone_numbers, "")
   end
 
   def build_guest
