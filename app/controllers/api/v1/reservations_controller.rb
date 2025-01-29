@@ -21,10 +21,6 @@ module Api
           error: e.message
         }, status: :unprocessable_entity
       end
-
-      def test
-         render json: { test: "test" }
-      end
     end
   end
 end

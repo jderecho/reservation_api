@@ -16,11 +16,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :reservations, only: %i[create] do
-        collection do
-          get :test
-        end
-      end
+      resources :reservations, only: %i[create]
     end
   end
 end
