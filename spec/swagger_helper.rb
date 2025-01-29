@@ -42,7 +42,7 @@ RSpec.configure do |config|
             in: :header
           }
         }
-      },
+      }
     }
   }
 

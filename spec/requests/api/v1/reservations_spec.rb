@@ -4,7 +4,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
   let(:user) { create(:user) }
   let(:token) { JWT.encode({ user_id: user.id }, Rails.application.credentials.secret_key_base, "HS256") }
   let(:Authorization) { "Bearer #{token}" }
-  
+
   # {
   #   "start_date": "2021-03-12",
   #   "end_date": "2021-03-16",
@@ -89,8 +89,8 @@ RSpec.describe 'api/v1/reservations', type: :request do
       produces 'application/json'
       security [ bearerAuth: [] ]
 
-      parameter name: 'Authorization', 
-                in: :header, 
+      parameter name: 'Authorization',
+                in: :header,
                 type: :string,
                 description: 'Bearer token for authentication',
                 required: true,
@@ -126,7 +126,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
           total_price: { type: :number }
         }
       }
-      
+
       parameter name: :reservation2, in: :body, schema: {
         type: :object,
         properties: {
