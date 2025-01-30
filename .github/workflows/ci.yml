@@ -68,7 +68,9 @@ jobs:
           bundler-cache: true
 
       - name: Set up config/master.key
-        run: bin/rails credentials:edit
+        run: |
+          rm -rf config/credentials.yml.enc
+          bin/rails credentials:edit
 
       - name: Wait for PostgreSQL to be Ready
         run: |
