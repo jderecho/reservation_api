@@ -67,6 +67,9 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Set up config/master.key
+        run: rails credentials:edit
+
       - name: Wait for PostgreSQL to be Ready
         run: |
           until pg_isready -h localhost -p 5432 -U postgres; do
