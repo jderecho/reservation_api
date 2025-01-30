@@ -9,7 +9,9 @@ This is a Ruby on Rails-based API that allows users to create reservations.
 
 #### System dependencies
 Ensure you have the following installed:
-- PostgreSQL
+- Docker & Docker Compose
+https://docs.docker.com/engine/install/
+https://docs.docker.com/compose/install/
 
 #### Configuration
 1. Clone the repository:
