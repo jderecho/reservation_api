@@ -4,5 +4,6 @@
 
 # Create a default user for development
 if Rails.env.development? || Rails.env.test?
-  FactoryBot.create(:user, username: 'admin', password: 'password')
+  user = User.find_or_create_by(username: 'admin')
+  user.update(password: 'password')
 end

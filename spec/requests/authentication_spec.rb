@@ -16,8 +16,6 @@ RSpec.describe 'authentication', type: :request do
           password: { type: :string }
         }
       }
-      # parameter name: :username, in: :body, type: :string, description: 'Username', required: true
-      # parameter name: :password, in: :body, type: :string, description: 'Password', required: true
 
       response '200', 'successful' do
         let(:user) { { username: auth_user.username, password: auth_user.password } }

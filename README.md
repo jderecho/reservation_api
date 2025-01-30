@@ -13,26 +13,35 @@ Ensure you have the following installed:
 
 #### Configuration
 1. Clone the repository:
-> git clone https://github.com/jderecho/reservation-api.git
+```
+git clone https://github.com/jderecho/reservation-api.git
 cd reservation-api
-  
+```
+
 <br>
 
 #### Running the Application with Docker Compose
 1. Start the application:
-> docker-compose up --build
+```
+docker-compose up --build
+```
 
 2. The application will be available at:
 http://localhost:3000
 
 3. To stop the application:
-> docker-compose down
+```
+docker-compose down
+```
 
 <br>
 
 #### Running the Test Suite
 To run tests inside the Docker container:
-> docker-compose run web bundle exec rspec --format documentation
+```
+docker-compose run web bin/rails db:setup
+docker-compose run web bundle exec rspec --format documentation
+```
 
 <br>
 
