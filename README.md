@@ -2,8 +2,8 @@ This is a Ruby on Rails-based API that allows users to create reservations.
 
 #### Requirements
 
-- Ruby version: 3.x.x
-- Rails version: 7.x.x
+- Ruby version: 3.2.5 +
+- Rails version: 7.2.x +
 - Database: PostgreSQL  
 
 
