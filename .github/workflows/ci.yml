@@ -81,5 +81,5 @@ jobs:
 
 
       - name: Run tests
-        run: RAILS_ENV=test bundle exec rspec . --format documentation
+        run: RAILS_ENV=test bundle exec rspec --format documentation
 
