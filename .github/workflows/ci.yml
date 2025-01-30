@@ -75,8 +75,11 @@ jobs:
           done
 
       - name: Set up database
-        run: bundle exec rake db:setup
+        run: |
+          RAILS_ENV=test bundle exec rake db:setup
+          RAILS_ENV=test bin/rails db:migrate
+
 
       - name: Run tests
-        run: RAILS_ENV=test bundle exec rspec --format documentation
+        run: RAILS_ENV=test bundle exec rspec . --format documentation
 

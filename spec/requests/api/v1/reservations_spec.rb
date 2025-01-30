@@ -5,28 +5,6 @@ RSpec.describe 'api/v1/reservations', type: :request do
   let(:token) { JWT.encode({ user_id: user.id }, Rails.application.credentials.secret_key_base, "HS256") }
   let(:Authorization) { "Bearer #{token}" }
 
-  # {
-  #   "start_date": "2021-03-12",
-  #   "end_date": "2021-03-16",
-  #   "nights": 4,
-  #   "guests": 4,
-  #   "adults": 2,
-  #   "children": 2,
-  #   "infants": 0,
-  #   "status": "accepted",
-  #   "guest": {
-  #     "id": 1,
-  #     "first_name": "Wayne",
-  #     "last_name": "Woodbridge",
-  #     "phone": "639123456789",
-  #     "email": "wayne_woodbridge@bnb.com"
-  #   },
-  #   "currency": "AUD",
-  #   "payout_price": "3800.00",
-  #   "security_price": "500",
-  #   "total_price": "4500.00"
-  # }
-
   let(:reservation) do
     JSON.parse(File.read(Rails.root.join('spec/fixtures/reservation.json')))
     {
@@ -196,7 +174,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
       end
 
       response '401', 'unauthorized' do
-        let(:Authorization) { nil } # Simulate missing token
+        let(:Authorization) { nil }
         run_test!
       end
     end
