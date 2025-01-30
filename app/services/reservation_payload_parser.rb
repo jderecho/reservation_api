@@ -55,7 +55,7 @@ class ReservationPayloadParser
         }
       }
     }
-    # Add more parsers..
+    # Add more parsers here
   ]
 
   def self.parse(payload)

@@ -9,6 +9,7 @@ class ApplicationController < ActionController::API
 
   private
 
+  # This method is used to authenticate each request
   def authenticate
     authenticate_or_request_with_http_token do |token, options|
       JWT.decode(token, Rails.application.credentials.secret_key_base, true, algorithm: "HS256")

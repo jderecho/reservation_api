@@ -1,6 +1,7 @@
 module Api
   module V1
     class ReservationsController < ApplicationController
+      # POST /api/v1/reservations
       def create
         parsed_data = ReservationPayloadParser.parse(request.raw_post)
         reservation = ReservationBuilder.new(parsed_data).save

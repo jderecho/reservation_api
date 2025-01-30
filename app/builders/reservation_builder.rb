@@ -1,11 +1,14 @@
 class ReservationBuilder
   attr_reader :attrs
 
+  # @params attrs [Hash] the attributes to initialize the object with
   def initialize(attrs = {})
     @attrs = attrs
     initialize_attributes
   end
 
+  # This method is used to save a reservation record
+  # @return [Reservation] the reservation record
   def save
     ActiveRecord::Base.transaction do
       find_or_create_guest!
@@ -31,6 +34,7 @@ class ReservationBuilder
     @host_currency = attrs.fetch(:host_currency, "AUD")
   end
 
+  # @return [Reservation] the reservation record
   def build_reservation
     @reservation = Reservation.new(
       start_date: @start_date,
@@ -48,10 +52,12 @@ class ReservationBuilder
     )
   end
 
+  # @return [Guest] the guest record
   def find_or_create_guest!
     @guest = GuestBuilder.new(guest_attributes).save
   end
 
+  # @return [Hash] the guest attributes
   def guest_attributes
     {
       id: attrs.dig(:guest, :id),

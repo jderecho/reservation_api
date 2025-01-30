@@ -13,6 +13,7 @@ class Reservation < ApplicationRecord
 
   private
 
+  # Validates that the end_date is after the start_date
   def checkout_after_checkin
     return if start_date.blank? || end_date.blank?
 
@@ -21,6 +22,7 @@ class Reservation < ApplicationRecord
     end
   end
 
+  # Validates that the start_date is not in the past
   def dates_not_in_past
     return if start_date.blank?
 
