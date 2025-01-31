@@ -16,8 +16,8 @@ https://docs.docker.com/compose/install/
 #### Configuration
 1. Clone the repository:
 ```
-git clone https://github.com/jderecho/reservation-api.git
-cd reservation-api
+git clone git@github.com:jderecho/reservation_api.git
+cd reservation_api
 ```
 
 <br>
