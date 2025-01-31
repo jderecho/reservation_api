@@ -53,4 +53,23 @@ docker-compose run web bundle exec rspec --format documentation
 
 #### API Documentation
 API endpoints and documentation can be found at:
+
+RUN db:seed to setup development user
+User credential
+Username: admin
+password: password
+
 http://localhost:3000/api-docs
+
+#### Setting Up Development User
+To set up a development user, run the following command:
+```
+docker-compose run web bin/rails db:seed
+```
+
+##### User Credentials
+Once the seeding is complete, you can log in using the following credentials:
+- Username: admin
+- Password: password
+
+Use these credentials to access the application in development mode.

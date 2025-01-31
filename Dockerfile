@@ -60,9 +60,6 @@ USER 1000:1000
 RUN rm -f config/credentials.yml.enc
 RUN rm -f config/master.key
 
-# regenerate master.key
-RUN bundle exec rails credentials:edit
-
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
