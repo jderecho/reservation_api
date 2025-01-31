@@ -27,11 +27,15 @@ cd reservation_api
 ```
 docker-compose up --build
 ```
+2. Setup Local Master Key
+```
+docker-compose run web bin/rails credentials:edit
+```
 
-2. The application will be available at:
+3. The application will be available at:
 http://localhost:3000
 
-3. To stop the application:
+4. To stop the application:
 ```
 docker-compose down
 ```
@@ -41,7 +45,7 @@ docker-compose down
 #### Running the Test Suite
 To run tests inside the Docker container:
 ```
-docker-compose run web bin/rails db:setup
+docker-compose run web bin/rails db:reset
 docker-compose run web bundle exec rspec --format documentation
 ```
 
