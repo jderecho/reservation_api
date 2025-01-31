@@ -56,6 +56,13 @@ RUN groupadd --system --gid 1000 rails && \
     chown -R rails:rails db log storage tmp
 USER 1000:1000
 
+# Remove config/credentials.yml.enc
+RUN rm -f config/credentials.yml.enc
+RUN rm -f config/master.key
+
+# regenerate master.key
+RUN bundle exec rails credentials:edit
+
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
